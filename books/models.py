@@ -32,7 +32,7 @@ class Book(models.Model):
     )
     description = models.CharField(
         max_length=512,
-        verbose_name=_('Title'),
+        verbose_name=_('Description'),
     )
     authors = models.ManyToManyField(
         Author,
