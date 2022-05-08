@@ -39,7 +39,8 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    "graphene_django"
+    "graphene_django",
+    'rest_framework',
 ]
 
 LOCAL_APPS = [
@@ -130,4 +131,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 GRAPHENE = {
     'SCHEMA': 'config.schema.schema',
+    "ATOMIC_MUTATIONS": True,
 }

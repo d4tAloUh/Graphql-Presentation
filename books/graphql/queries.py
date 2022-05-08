@@ -1,14 +1,16 @@
 import graphene
 from graphene_django import DjangoListField
 
-from books.graphql.types import BookType
+from books.graphql.types import BookType, AuthorType, ReviewType
 
 
-class BooksQuery(graphene.ObjectType):
+class Query(graphene.ObjectType):
     books = DjangoListField(
-        BookType,
+        BookType
     )
-
-
-class Query(BooksQuery):
-    pass
+    authors = DjangoListField(
+        AuthorType,
+    )
+    reviews = DjangoListField(
+        ReviewType
+    )

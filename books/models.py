@@ -11,6 +11,7 @@ class Author(models.Model):
     name = models.CharField(
         max_length=255,
         verbose_name=_('Name'),
+        unique=True
     )
 
     def __str__(self):
