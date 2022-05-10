@@ -39,3 +39,18 @@ class ReviewViewSet(
 ):
     serializer_class = ReviewSerializer
     queryset = Review.objects.all()
+
+
+class BookReviewsViewSet(
+    mixins.ListModelMixin,
+    GenericViewSet
+):
+    serializer_class = ReviewSerializer
+    queryset = Review.objects.all()
+
+    def get_queryset(self):
+        return Review.objects.filter(
+            book_id=self.kwargs['book_id']
+        )
+
+

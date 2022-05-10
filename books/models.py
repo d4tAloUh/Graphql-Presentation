@@ -10,12 +10,21 @@ User = get_user_model()
 class Author(models.Model):
     name = models.CharField(
         max_length=255,
-        verbose_name=_('Name'),
-        unique=True
+        verbose_name=_('Name')
+    )
+    surname = models.CharField(
+        max_length=255,
+        verbose_name=_('Surname')
+    )
+    birth_date = models.DateField(
+        verbose_name=_("Birth date"),
     )
 
+    class Meta:
+        unique_together = ('name', 'surname')
+
     def __str__(self):
-        return self.name
+        return f"{self.name} {self.surname}"
 
 
 class Book(models.Model):

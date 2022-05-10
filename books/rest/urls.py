@@ -1,6 +1,6 @@
 from rest_framework.routers import DefaultRouter
 
-from books.rest.views import BookViewSet, ReviewViewSet, AuthorViewSet
+from books.rest.views import BookViewSet, ReviewViewSet, AuthorViewSet, BookReviewsViewSet
 
 router = DefaultRouter()
 
@@ -19,6 +19,12 @@ router.register(
     r'reviews',
     ReviewViewSet,
     basename='review'
+)
+
+router.register(
+    r'reviews/book/(?P<book_id>[0-9]+)',
+    BookReviewsViewSet,
+    basename='book-review'
 )
 
 urlpatterns = router.urls
